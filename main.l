@@ -1,10 +1,8 @@
 digit [0-9]*
 letter [a-zA-Z]
-comment [\{.*\}]
 
 %%
 " " {printf("");}
-{comment} {printf("");}
 {digit} {printf("%s - num\n", yytext);}
 "program" {printf("%s - program\n", yytext);}
 "var" {printf("%s - var\n", yytext);}
