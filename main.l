@@ -1,6 +1,19 @@
 %{
   #include <stdio.h>
   #include <stdlib.h>
+  #include <string.h>
+
+  int hash(char *word){
+    int sum = 0;
+    for(int j = 0; j < 9; j++){
+      sum = sum + word[j];
+    }
+    sum = sum + word[5];
+    sum = sum + word[4];
+
+    return (sum%73);
+  }
+
 %}
 
 digit [0-9]*
@@ -57,21 +70,21 @@ letter [a-zA-Z]
 %%
 
 int main(){
-  int numbOfWords = 19;
   int sizeOfBiggWord = 9;
   FILE * fp;
-  char reservWords[numbOfWords][sizeOfBiggWord];
+  char readReservedWord[sizeOfBiggWord];
+  char hashReservedWords[73][sizeOfBiggWord];
+  int hashIndex = 0;
   int i = 0;
 
   fp = fopen ("reservWords.txt", "r");
-  while (!feof(fp)){
-    fscanf(fp, "%s ", reservWords[i]);
-    i++;
+  while (!feof(fp)){   
+    fscanf(fp, "%s ", &readReservedWord[0]);
+    hashIndex = hash(readReservedWord);
+    strcpy(hashReservedWords[hashIndex], readReservedWord);
   }
-
   fclose(fp);
 
   yylex();
-
   return 0;
 }

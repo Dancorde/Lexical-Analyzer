@@ -526,7 +526,20 @@ char *yytext;
 #line 2 "main.l"
   #include <stdio.h>
   #include <stdlib.h>
-#line 530 "lex.yy.c"
+  #include <string.h>
+
+  int hash(char *word){
+    int sum = 0;
+    for(int j = 0; j < 9; j++){
+      sum = sum + word[j];
+    }
+    sum = sum + word[5];
+    sum = sum + word[4];
+
+    return (sum%73);
+  }
+
+#line 543 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -708,10 +721,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 9 "main.l"
+#line 22 "main.l"
 
 
-#line 715 "lex.yy.c"
+#line 728 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -796,207 +809,207 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 11 "main.l"
+#line 24 "main.l"
 {printf("%s - program\n", yytext);}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 12 "main.l"
+#line 25 "main.l"
 {printf("%s - var\n", yytext);}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 13 "main.l"
+#line 26 "main.l"
 {printf("%s - const\n", yytext);}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 14 "main.l"
+#line 27 "main.l"
 {printf("%s - :\n", yytext);}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 15 "main.l"
+#line 28 "main.l"
 {printf("%s - ,\n", yytext);}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 16 "main.l"
+#line 29 "main.l"
 {printf("%s - tipo_var\n", yytext);}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 17 "main.l"
+#line 30 "main.l"
 {printf("%s - tipo_var\n", yytext);}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 18 "main.l"
+#line 31 "main.l"
 {printf("%s - begin\n", yytext);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 19 "main.l"
+#line 32 "main.l"
 {printf("%s - end\n", yytext);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 20 "main.l"
+#line 33 "main.l"
 {printf("%s - .\n", yytext);}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 21 "main.l"
+#line 34 "main.l"
 {printf("%s - ;\n", yytext);}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 23 "main.l"
+#line 36 "main.l"
 {printf("%s - read\n", yytext);}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 24 "main.l"
+#line 37 "main.l"
 {printf("%s - write\n", yytext);}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 26 "main.l"
+#line 39 "main.l"
 {printf("%s - procedure\n", yytext);}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 27 "main.l"
+#line 40 "main.l"
 {printf("%s - if\n", yytext);}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 28 "main.l"
+#line 41 "main.l"
 {printf("%s - then\n", yytext);}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 29 "main.l"
+#line 42 "main.l"
 {printf("%s - else\n", yytext);}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 30 "main.l"
+#line 43 "main.l"
 {printf("%s - do\n", yytext);}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 31 "main.l"
+#line 44 "main.l"
 {printf("%s - while\n", yytext);}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 32 "main.l"
+#line 45 "main.l"
 {printf("%s - for\n", yytext);}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 33 "main.l"
+#line 46 "main.l"
 {printf("%s - to\n", yytext);}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 35 "main.l"
+#line 48 "main.l"
 {printf("%s - :=\n", yytext);}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 36 "main.l"
+#line 49 "main.l"
 {printf("%s - =\n", yytext);}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 37 "main.l"
+#line 50 "main.l"
 {printf("%s - (\n", yytext);}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 38 "main.l"
+#line 51 "main.l"
 {printf("%s - )\n", yytext);}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 40 "main.l"
+#line 53 "main.l"
 {printf("%s - <\n", yytext);}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 41 "main.l"
+#line 54 "main.l"
 {printf("%s - <=\n", yytext);}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 42 "main.l"
+#line 55 "main.l"
 {printf("%s - >\n", yytext);}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 43 "main.l"
+#line 56 "main.l"
 {printf("%s - >=\n", yytext);}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 44 "main.l"
+#line 57 "main.l"
 {printf("%s - <>\n", yytext);}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 46 "main.l"
+#line 59 "main.l"
 {printf("%s - +\n", yytext);}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 47 "main.l"
+#line 60 "main.l"
 {printf("%s - -\n", yytext);}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 48 "main.l"
+#line 61 "main.l"
 {printf("%s - *\n", yytext);}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 49 "main.l"
+#line 62 "main.l"
 {printf("%s - /\n", yytext);}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 51 "main.l"
+#line 64 "main.l"
 {printf("%s - id\n", yytext);}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 52 "main.l"
+#line 65 "main.l"
 {printf("%s - numero_real\n", yytext);}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 53 "main.l"
+#line 66 "main.l"
 {printf("%s - numero_int\n", yytext);}
 	YY_BREAK
 case 38:
 /* rule 38 can match eol */
 YY_RULE_SETUP
-#line 54 "main.l"
+#line 67 "main.l"
 {}
 	YY_BREAK
 case 39:
 /* rule 39 can match eol */
 YY_RULE_SETUP
-#line 55 "main.l"
+#line 68 "main.l"
 {printf("%s - comentario\n", yytext);}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 57 "main.l"
+#line 70 "main.l"
 ECHO;
 	YY_BREAK
-#line 1000 "lex.yy.c"
+#line 1013 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1993,27 +2006,26 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 57 "main.l"
+#line 70 "main.l"
 
 
 
 int main(){
-  int numbOfWords = 19;
   int sizeOfBiggWord = 9;
   FILE * fp;
-  char reservWords[numbOfWords][sizeOfBiggWord];
+  char readReservedWord[sizeOfBiggWord];
+  char hashReservedWords[73][sizeOfBiggWord];
+  int hashIndex = 0;
   int i = 0;
 
   fp = fopen ("reservWords.txt", "r");
-  while (!feof(fp)){
-    fscanf(fp, "%s ", reservWords[i]);
-    i++;
+  while (!feof(fp)){   
+    fscanf(fp, "%s ", &readReservedWord[0]);
+    hashIndex = hash(readReservedWord);
+    strcpy(hashReservedWords[hashIndex], readReservedWord);
   }
-
   fclose(fp);
 
   yylex();
-
   return 0;
 }
-
