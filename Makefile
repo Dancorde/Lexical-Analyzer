@@ -1,13 +1,10 @@
-ifeq (run,$(firstword $(MAKECMDGOALS)))
-  # use the rest as arguments for "run"
-  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-  # ...and turn them into do-nothing targets
-  $(eval $(RUN_ARGS):;@:)
-endif
-
 all:
-	lex main.l
-	cc lex.yy.c -ll -o output
-	
+	lex scanner.l
+	gcc scanner.c lex.yy.c hash.c -o scanner
+	# ./scanner < config.in
+
 run:
-	./output < $(RUN_ARGS) > output.txt
+	./scanner < ./tests/test1.in > ./tests/test1.out
+	./scanner < ./tests/test2.in > ./tests/test2.out
+	./scanner < ./tests/test3.in > ./tests/test3.out
+	./scanner < ./tests/test4.in > ./tests/test4.out

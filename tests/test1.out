@@ -1,0 +1,20 @@
+program - program
+lalg - id
+; - ;
+var - var
+a - id
+: - :
+integer - integer
+; - ;
+begin - begin
+readd - id
+( - (
+a - id
+, - ,
+@ - erro - simbolo não pertence a linguagem
+, - ,
+1 - numero_int
+) - )
+; - ;
+end - end
+. - .

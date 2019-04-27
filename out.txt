@@ -1,0 +1,16 @@
+program - program
+; - ;
+{entrada - invalid id
+}var - var
+: - :
+integer - integer
+; - ;
+begin - begin
+( - (
+, - ,
+@, - ,
+1 - numero_int
+) - )
+; - ;
+end - end
+. - .
