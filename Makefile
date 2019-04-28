@@ -1,7 +1,6 @@
 all:
 	lex scanner.l
 	gcc -g scanner.c lex.yy.c hash.c -o scanner
-	# ./scanner < config.in
 
 run: all
 	./scanner < ./tests/test1.in > ./tests/test1.out

@@ -461,9 +461,8 @@ char *yytext;
 #line 1 "scanner.l"
 #line 2 "scanner.l"
 	extern char *yytext;
-	
+#line 464 "lex.yy.c"
 #line 465 "lex.yy.c"
-#line 466 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -680,9 +679,9 @@ YY_DECL
 		}
 
 	{
-#line 14 "scanner.l"
+#line 13 "scanner.l"
 
-#line 685 "lex.yy.c"
+#line 684 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -741,83 +740,83 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 15 "scanner.l"
+#line 14 "scanner.l"
 {return *yytext;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 16 "scanner.l"
+#line 15 "scanner.l"
 {return *yytext;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 17 "scanner.l"
+#line 16 "scanner.l"
 {return *yytext;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 18 "scanner.l"
+#line 17 "scanner.l"
 {return *yytext;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 19 "scanner.l"
+#line 18 "scanner.l"
 {printf("%s - (\n", yytext);}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 21 "scanner.l"
+#line 20 "scanner.l"
 {return *yytext;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 22 "scanner.l"
+#line 21 "scanner.l"
 {return *yytext;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 24 "scanner.l"
+#line 23 "scanner.l"
 {if(yyleng < 10) return *yytext; else printf("%s - erro - identificador muito grande\n", yytext);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 25 "scanner.l"
+#line 24 "scanner.l"
 {if(yyleng < 15) printf("%s - numero_real\n", yytext); else printf("%s - erro - numero real muito grande\n", yytext);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 26 "scanner.l"
+#line 25 "scanner.l"
 {if(yyleng < 15) printf("%s - numero_int\n", yytext); else printf("%s - erro - numero inteiro muito grande\n", yytext);}
 	YY_BREAK
 case 11:
 /* rule 11 can match eol */
 YY_RULE_SETUP
-#line 28 "scanner.l"
+#line 27 "scanner.l"
 {}
 	YY_BREAK
 case 12:
 /* rule 12 can match eol */
 YY_RULE_SETUP
-#line 29 "scanner.l"
+#line 28 "scanner.l"
 {}
 	YY_BREAK
 case 13:
 /* rule 13 can match eol */
 YY_RULE_SETUP
-#line 31 "scanner.l"
+#line 30 "scanner.l"
 {printf("%s - erro - numero real mal formatado\n", yytext);}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 32 "scanner.l"
+#line 31 "scanner.l"
 {printf("%s - erro - simbolo não pertence a linguagem\n", yytext);}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 35 "scanner.l"
+#line 34 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 820 "lex.yy.c"
+#line 819 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1822,9 +1821,12 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 35 "scanner.l"
+#line 34 "scanner.l"
 
 
 int yywrap(void){
+	// Libera o buffer atual para reduzir memory leaks
+	yy_delete_buffer(YY_CURRENT_BUFFER);
 	return 1;
 }
+

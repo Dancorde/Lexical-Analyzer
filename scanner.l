@@ -1,6 +1,5 @@
 %{
 	extern char *yytext;
-	
 %}
 
 digit [0-9]*
@@ -35,5 +34,7 @@ identifier {letter}({letter}|{digit})*
 %%
 
 int yywrap(void){
+	// Libera o buffer atual para reduzir memory leaks
+	yy_delete_buffer(YY_CURRENT_BUFFER);
 	return 1;
 }
