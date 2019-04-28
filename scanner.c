@@ -9,7 +9,7 @@ extern char *yytext;
 int main(void){
   int ntoken;
   char wordsHash[tam_hash][tam_word];
-  char *word;
+  char word[tam_word];
 
   int achou;
 
@@ -22,6 +22,10 @@ int main(void){
 
   // Insere as palavras reservadas na hash
   fp = fopen ("reservedWords.txt", "r");
+  if(!fp){
+		  fprintf(stderr, "erro - arquivo de palavras reservadas nao encontrado");
+		  return 1;
+  }
   while (!feof(fp)){
     fscanf(fp, "%s\n", word);
     strcpy(wordsHash[hash(word)], word);
